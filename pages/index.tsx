@@ -7,6 +7,7 @@ import styles from '../styles/Home.module.css'
 import React from 'react'
 import { MenuItem } from '../components/molecules/MenuItem/MenuItem'
 import { Hero } from '../components/molecules/Hero/Hero'
+import { TopBar } from '../components/organisms/TopBar/TopBar'
 
 const Home: NextPage = () => {
   return (
@@ -17,41 +18,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Flex w="100%" flexDirection="row" alignContent="center" p="6px 0">
-          <Text 
-            fontSize="36px" 
-            fontWeight="bold" 
-            lineHeight="42px" 
-            color="#1F79BA"
-            flexGrow={1}
-          >
-            SuperApp
-          </Text>
-          <HStack spacing="16px" alignContent="center">
-              <MenuItem>
-                <Link href="/blog">
-                  Blog
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link href="/product">
-                  Product
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link href="/pricing">
-                  Pricing
-                </Link>
-              </MenuItem>
-          </HStack> 
-          <Flex marginLeft="82px">
-            <Button variant="solid" colorScheme="blue">
-              Get started
-              </Button>
-          </Flex>
-      </Flex>
+      <TopBar />
       <Flex>
-        <Hero></Hero>
+        <Hero />
       </Flex>
     </div>
   )
