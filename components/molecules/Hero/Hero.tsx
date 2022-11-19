@@ -12,7 +12,7 @@ export const Hero = () => {
                   <br />
                   Make your app in minutes
                </Heading>
-               <Text mt="8px" fontSize="26px" color="gray.600">Your Fullstack React app</Text>
+               <Text mt="48px" fontSize="26px" color="gray.600">Your Fullstack React app</Text>
            </Container>
       </Flex>
     )

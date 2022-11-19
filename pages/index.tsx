@@ -5,7 +5,8 @@ import styles from '../styles/Home.module.css'
 import React from 'react'
 import { Hero } from '../components/molecules/Hero/Hero'
 import { TopBar } from '../components/organisms/TopBar/TopBar'
-import { LandingBody } from '../components/organisms/LandingBody'
+import { LandingBody } from '../components/organisms/LandingBody/LandingBody'
+import { LandingFooter } from '../components/organisms/LandingFooter/LandingFooter'
 
 
 const Home: NextPage = () => {
@@ -22,6 +23,7 @@ const Home: NextPage = () => {
         <Hero />
       </Flex>
       <LandingBody />
+      <LandingFooter />
     </div>
   )
 }
