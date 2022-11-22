@@ -6,9 +6,9 @@ import { UserSession } from "./auth/[...nextauth]"
 
 const prisma = new PrismaClient()
 
-// GET /api/todos -> all the todos of the current user
+// POST /api/todo -> create todo
 export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== "GET") {
+  if (req.method !== "POST") {
     res.status(405).send("Method Not Allowed")
     return
   }
@@ -20,20 +20,24 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
-  if (req.method === "GET") {
+  if (req.method === "POST") {
+    const { title } = req.body
+
+    if (!title) {
+      res.status(400).send("Bad Request")
+      return
+    }
+
     const userSession: UserSession = session as UserSession
-    const todos = await prisma.todo.findMany({
-      orderBy: [
-        {
-          createdAt: "desc",
-        },
-      ],
-      where: {
+    const todo = await prisma.todo.create({
+      data: {
+        title,
         userId: userSession.userId,
+        isCompleted: false,
       },
     })
 
-    return res.json(todos)
+    return res.json(todo)
   }
 }
 
